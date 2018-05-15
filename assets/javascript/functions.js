@@ -35,8 +35,11 @@ function pickCity(){
         $(".city-name").text(city);
         //   console.log(urbanURL);
           urbanInfo();
-          fourSquare(3);
-          fourSquare(0);
+          getWeather();
+          for(var i = 0; i < activityOption.length; i++){
+          fourSquare(i);
+          }
+
     });
 }      
 
@@ -81,7 +84,20 @@ $("body").on("click" , ".wunderlust-btn" , pickCity);
 //API link with "city" variable plugged in between.  Parameter "near" takes the city name.
 
 function fourSquare(query){
-var queryURL = "https://api.foursquare.com/v2/venues/explore?client_id=APG3IG5Z23XQFAHJ2OEIL315CCY4ZIYVNJHNNKSV4X5SIZPB&client_secret=BI42KWF4MSAGRFOYX1H0LO4ERS2GEFF3UL32VGIPQKLPLGW5&near=" + city + "&v=20180323&" + activityOption[query];
+var clientSecret=[
+    "HLFDLMAMHMQWMTJX3H2O3TIK2JOAKLUJD4NOTIDRGKP1MVR5",
+    "BI42KWF4MSAGRFOYX1H0LO4ERS2GEFF3UL32VGIPQKLPLGW5"
+];
+
+
+var clietId =[
+    "EDXCMO051UQ0ANTH2B53BJ400U01LR2YYAGOLIV142BBZNGT",
+    "APG3IG5Z23XQFAHJ2OEIL315CCY4ZIYVNJHNNKSV4X5SIZPB"
+];
+var queryURL = "https://api.foursquare.com/v2/venues/explore?client_id=EDXCMO051UQ0ANTH2B53BJ400U01LR2YYAGOLIV142BBZNGT&client_secret=HLFDLMAMHMQWMTJX3H2O3TIK2JOAKLUJD4NOTIDRGKP1MVR5&near=" + city + "&v=20180323&" + activityOption[query];
+
+
+//API link with "city" variable plugged in between.  Parameter "near" takes the city name.
 
 
 // var fourSheader = 
@@ -106,6 +122,7 @@ $.ajax({
 }).done(function (response) {
    console.log(response);
    var itemsArr = response.response.groups["0"].items;
+   $(".content-"+query).empty();
    console.log(itemsArr);
     for(i = 0; i < 3; i++){
         //determines if itemsArr still has content
@@ -115,10 +132,10 @@ $.ajax({
             // console.log(itemsArr[rand]);
             //After printing itemsArr[rand] this array element is removed to prevent it from appearing again
             var venue = itemsArr[rand]["venue"];
-            var name = $("<h3>").text(venue.name);
-            var category = $("<span>").text("Category:" + venue.categories[0].name);
+            var name = $("<h3 class='4sq-name'>").text(venue.name);
+            var category = $("<span class='4sq-cat'>").text("Category: " + venue.categories[0].name);
             console.log(category);
-            var address = $("<span>").text(venue.location.address);
+            var address = $("<span class='4sq-add'>").text(venue.location.address + ", " + city);
             console.log(address);
             // console.log(category);
             var container = $("<div class='venue-card'>").append(name,category,address);
@@ -136,3 +153,72 @@ $.ajax({
    
 });
 }
+
+
+//CLOCK AND WEATHER
+function getWeather(){
+    var APIKey = "166a433c57516f51dfab1f7edaed8413";
+
+    // Here we are building the URL we need to query the database
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+      "q="+city+"&units=imperial&appid=" + APIKey;
+
+    // Here we run our AJAX call to the OpenWeatherMap API
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+      // We store all of the retrieved data inside of an object called "response"
+      .then(function(response) {
+
+        // Log the queryURL
+        console.log(queryURL);
+
+        // Log the resulting object
+        console.log(response);
+
+        // Transfer content to HTML
+        $(".city").html("<h3>" + response.name);
+        $(".wind").text("Wind Speed: " + response.wind.speed);
+        $(".humidity").text("Humidity: " + response.main.humidity + "%");
+        $(".temp").text("Temperature (F) " + response.main.temp);
+
+        // Log the data in the console as well
+        console.log("Wind Speed: " + response.wind.speed);
+        console.log("Humidity: " + response.main.humidity);
+        console.log("Temperature (F): " + response.main.temp);
+      });
+    }
+
+    // setTimeout(
+      function showTime(){
+        console.log("city " + city);
+        var date = moment.tz("2014-06-01 12:00", "America/New_York");
+        // var date = new Date();
+        console.log(date);
+        var h = date.getHours(); // 0 - 23
+        var m = date.getMinutes(); // 0 - 59
+        var s = date.getSeconds(); // 0 - 59
+        var session = "AM";
+        
+        if(h == 0){
+            h = 12;
+        }
+        
+        if(h > 12){
+            h = h - 12;
+            session = "PM";
+        }
+        
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+        
+        var time = h + ":" + m + ":" + s + " " + session;
+        document.getElementById("MyClockDisplay").innerText = time;
+        document.getElementById("MyClockDisplay").textContent = time;
+        
+        setTimeout(showTime, 1000);   
+    }
+    
+
