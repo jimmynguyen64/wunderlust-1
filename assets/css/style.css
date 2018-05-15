@@ -13,6 +13,7 @@ body1{
   }
 
 .wunderlust-btn{
+    display: block;
     background: rgba(255,255,255,.7);
     text-align: center;
     width: 250px;
@@ -34,6 +35,9 @@ body1{
     color: white;
     transform: rotate(1080deg);
 
+}
+a:hover{
+  text-decoration: none;
 }
 
 /* Custom Stylesheet */

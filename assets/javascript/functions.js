@@ -116,8 +116,8 @@ $.ajax({
             //After printing itemsArr[rand] this array element is removed to prevent it from appearing again
             var venue = itemsArr[rand]["venue"];
             var name = $("<h3>").text(venue.name);
-            var category = venue.categories[0];
-            console.log(name);
+            var category = $("<span>").text("Category:" + venue.categories[0].name);
+            console.log(category);
             var address = $("<span>").text(venue.location.address);
             console.log(address);
             // console.log(category);
