@@ -13,7 +13,6 @@ body1{
   }
 
 .wunderlust-btn{
-    display: block;
     background: rgba(255,255,255,.7);
     text-align: center;
     width: 250px;
@@ -28,17 +27,61 @@ body1{
     transition: 1.4s;
     font-weight: 800;
     cursor: pointer;
+    z-index: 100;
+    position: relative;
 }
+
+.btn-results{
+    height: 100px;
+    width: 100px;
+    padding: 1rem;
+}
+.btn-results svg{
+  height: 100%;
+  width: 100%;
+}
+.company-name{
+  position: absolute;
+  opacity: .1;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 2.2rem;
+}
+
+.btn-results:hover path{
+  fill: white;
+}
+.btn-results:hover polygon{
+  fill: white;
+}
+
 .wunderlust-btn:hover{
     background: rgba(0,0,0,.8);
     border: solid 4px white;
     color: white;
     transform: rotate(1080deg);
+  
 
 }
 a:hover{
   text-decoration: none;
 }
+
+.city-name{
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5rem;
+  margin: 0;
+  display: block;
+  padding: 1rem;
+  padding-left: 4rem;
+  background: rgba(0,0,0,.6);
+  border: solid 4px white;
+
+}
+
+
 
 /* Custom Stylesheet */
 /**
