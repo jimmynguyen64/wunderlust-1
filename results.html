@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wunderlust</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
-  <link href="assets/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
-  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
+
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container logo">
@@ -22,16 +24,19 @@
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
-        <br><br>
+        <br>
+        <br>
         <h1 class="header center teal-text text-lighten-2"></h1>
         <div class="row center">
-          <h3 class="header col s12 light"> “Life is either a daring adventure or nothing at all.”</h3>
+          <h2 class="header col s12 light"> “Life is either a daring adventure or nothing at all.”</h2>
         </div>
-        
+
 
       </div>
     </div>
-    <div class="parallax"><img src="assets/images/australia-1320x743.png" alt="Unsplashed background img 1"></div>
+    <div class="parallax">
+      <img src="assets/images/australia-1320x743.png" alt="Unsplashed background img 1">
+    </div>
   </div>
 
 
@@ -42,19 +47,25 @@
       <div class="row">
         <div class="col s12 m6">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
-
-            <p class="light">Clock</p>
+            <h2 class="center black-text">
+              <i class="material-icons">watch</i>
+            </h2>
+            <h5 class="center">Current Time</h5>
+            <div id="MyClockDisplay" class="clock"></div>
           </div>
         </div>
 
         <div class="col s12 m6">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
-
-            <p class="light">Weather</p>
+            <h2 class="center blue-text">
+              <i class="material-icons">cloud</i>
+            </h2>
+            <h2 class="center">City Weather</h2>
+            <div class="city"></div>
+            <div class="wind"></div>
+            <div class="humidity"></div>
+            <div class="temp"></div>
+            
           </div>
         </div>
       </div>
@@ -67,11 +78,13 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h2 class="header col s12 light">“Better to see something once than hear about it a thousand times”</h2>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="assets/images/ontheroadjapan-background-full.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax">
+      <img src="assets/images/ontheroadjapan-background-full.jpg" alt="Unsplashed background img 2">
+    </div>
   </div>
 <!-- parallax image end -->
 
@@ -123,11 +136,13 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h2 class="header col s12 light">“To Travel is to Live” – Hans Christian Andersen</h2>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="assets/images/Eiffel-Tower-in-Paris-France.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax">
+      <img src="assets/images/Eiffel-Tower-in-Paris-France.jpg" alt="Unsplashed background img 3">
+    </div>
   </div>
 <!-- parallax image end -->
 
@@ -168,33 +183,51 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Team Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college bootcamp students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <p class="grey-text text-lighten-4">We are a team of college bootcamp students working on this project like it's our full time job. Any amount would
+            help support and continue development on this project and is greatly appreciated.</p>
 
 
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Settings</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li>
+              <a class="white-text" href="#!">Link 1</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 2</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 3</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 4</a>
+            </li>
           </ul>
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Connect</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li>
+              <a class="white-text" href="#!">Link 1</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 2</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 3</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 4</a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Wunderlust</a>
+        Made by
+        <a class="brown-text text-lighten-3" href="http://materializecss.com">Wunderlust</a>
       </div>
     </div>
   </footer>
@@ -211,5 +244,6 @@
   </script>
 
 
-  </body>
+</body>
+
 </html>

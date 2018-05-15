@@ -1,4 +1,4 @@
-/* body{
+body1{
     background-image: url(../images/mountain.jpg);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -10,7 +10,7 @@
     align-items: center;
     min-height: 100vh;
     min-width: 100vw;
-  } */
+  }
 
 .wunderlust-btn{
     background: rgba(255,255,255,.7);
@@ -99,7 +99,7 @@
    text-align: center;
  }
  
- .Wunderlust-btn1{
+ .Wunderlust-btn{
    background: rgba(255,255,255,.7);
    text-align: center;
    width: 100px;
@@ -115,13 +115,44 @@
    font-weight: 800;
    cursor: pointer;
  }
- .Wunderlust-btn1:hover{
+ .Wunderlust-btn:hover{
    background: rgba(0,0,0,.8);
    border: solid 4px black;
    color: red;
    transform: rotate(1080deg);
  
  }
+
+.city{
+  text-align: center;
+}
+
+.wind{
+  text-align: center;
+}
+
+.humidity{
+  text-align: center;
+}
+
+.temp{
+  text-align: center;
+}
+
+/* .body {
+  background: black;
+} */
+
+.clock {
+  color: black;
+  font-size: 2.5rem;
+  font-family: sans-serif;
+  letter-spacing: 7px;
+  margin: 60px;
+}
+
+
+ 
  
 
 
