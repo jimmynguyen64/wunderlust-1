@@ -83,66 +83,66 @@ $("body").on("click" , ".wunderlust-btn" , pickCity);
 
 //API link with "city" variable plugged in between.  Parameter "near" takes the city name.
 
-function fourSquare(query){
-var clientSecret=[
-    "HLFDLMAMHMQWMTJX3H2O3TIK2JOAKLUJD4NOTIDRGKP1MVR5",
-    "BI42KWF4MSAGRFOYX1H0LO4ERS2GEFF3UL32VGIPQKLPLGW5"
-];
-
-
-var clietId =[
-    "EDXCMO051UQ0ANTH2B53BJ400U01LR2YYAGOLIV142BBZNGT",
-    "APG3IG5Z23XQFAHJ2OEIL315CCY4ZIYVNJHNNKSV4X5SIZPB"
-];
-var queryURL = "https://api.foursquare.com/v2/venues/explore?client_id=EDXCMO051UQ0ANTH2B53BJ400U01LR2YYAGOLIV142BBZNGT&client_secret=HLFDLMAMHMQWMTJX3H2O3TIK2JOAKLUJD4NOTIDRGKP1MVR5&near=" + city + "&v=20180323&" + activityOption[query];
-
-
-//API link with "city" variable plugged in between.  Parameter "near" takes the city name.
-
-
-// var fourSheader = 
-// var fourSlink = 
-// var fourDescription =
-
-// var activyOption = [
-//     "ArtsAndEntertainment: 4d4b7104d754a06370d81259",
-//     "NightlifeSpot: 4d4b7105d754a06376d81259",
-//     "OutdoorsRecreation: 4d4b7105d754a06377d81259",
-//     "OtherEvent: 4d4b7105d754a06373d81259"
+// function fourSquare(query){
+// var clientSecret=[
+//     "HLFDLMAMHMQWMTJX3H2O3TIK2JOAKLUJD4NOTIDRGKP1MVR5",
+//     "BI42KWF4MSAGRFOYX1H0LO4ERS2GEFF3UL32VGIPQKLPLGW5"
 // ];
 
-// Arts and Entertainment:  4d4b7104d754a06370d81259
-// Nightlife Spot:  4d4b7105d754a06376d81259
-// Outdoors & Recreation:  4d4b7105d754a06377d81259
-// Event:  4d4b7105d754a06373d81259
 
-$.ajax({
-   url: queryURL,
-   method: "GET"
-}).done(function (response) {
-   console.log(response);
-   var itemsArr = response.response.groups["0"].items;
-   $(".content-"+query).empty();
-   console.log(itemsArr);
-    for(i = 0; i < 3; i++){
-        //determines if itemsArr still has content
-        if(itemsArr){
-            //rand grabs random index from itemsArr
-            var rand = random(itemsArr)
-            // console.log(itemsArr[rand]);
-            //After printing itemsArr[rand] this array element is removed to prevent it from appearing again
-            var venue = itemsArr[rand]["venue"];
-            var name = $("<h3 class='4sq-name'>").text(venue.name);
-            var category = $("<span class='4sq-cat'>").text("Category: " + venue.categories[0].name);
-            console.log(category);
-            var address = $("<span class='4sq-add'>").text(venue.location.address + ", " + city);
-            console.log(address);
-            // console.log(category);
-            var container = $("<div class='venue-card'>").append(name,category,address);
-            $(".content-"+query).append(container);
-            itemsArr.splice(rand,1);
-        }
-    }
+// var clietId =[
+//     "EDXCMO051UQ0ANTH2B53BJ400U01LR2YYAGOLIV142BBZNGT",
+//     "APG3IG5Z23XQFAHJ2OEIL315CCY4ZIYVNJHNNKSV4X5SIZPB"
+// ];
+// var queryURL = "https://api.foursquare.com/v2/venues/explore?client_id=EDXCMO051UQ0ANTH2B53BJ400U01LR2YYAGOLIV142BBZNGT&client_secret=HLFDLMAMHMQWMTJX3H2O3TIK2JOAKLUJD4NOTIDRGKP1MVR5&near=" + city + "&v=20180323&" + activityOption[query];
+
+
+// //API link with "city" variable plugged in between.  Parameter "near" takes the city name.
+
+
+// // var fourSheader = 
+// // var fourSlink = 
+// // var fourDescription =
+
+// // var activyOption = [
+// //     "ArtsAndEntertainment: 4d4b7104d754a06370d81259",
+// //     "NightlifeSpot: 4d4b7105d754a06376d81259",
+// //     "OutdoorsRecreation: 4d4b7105d754a06377d81259",
+// //     "OtherEvent: 4d4b7105d754a06373d81259"
+// // ];
+
+// // Arts and Entertainment:  4d4b7104d754a06370d81259
+// // Nightlife Spot:  4d4b7105d754a06376d81259
+// // Outdoors & Recreation:  4d4b7105d754a06377d81259
+// // Event:  4d4b7105d754a06373d81259
+
+// $.ajax({
+//    url: queryURL,
+//    method: "GET"
+// }).done(function (response) {
+//    console.log(response);
+//    var itemsArr = response.response.groups["0"].items;
+//    $(".content-"+query).empty();
+//    console.log(itemsArr);
+//     for(i = 0; i < 3; i++){
+//         //determines if itemsArr still has content
+//         if(itemsArr){
+//             //rand grabs random index from itemsArr
+//             var rand = random(itemsArr)
+//             // console.log(itemsArr[rand]);
+//             //After printing itemsArr[rand] this array element is removed to prevent it from appearing again
+//             var venue = itemsArr[rand]["venue"];
+//             var name = $("<h3 class='4sq-name'>").text(venue.name);
+//             var category = $("<span class='4sq-cat'>").text("Category: " + venue.categories[0].name);
+//             console.log(category);
+//             var address = $("<span class='4sq-add'>").text(venue.location.address + ", " + city);
+//             console.log(address);
+//             // console.log(category);
+//             var container = $("<div class='venue-card'>").append(name,category,address);
+//             $(".content-"+query).append(container);
+//             itemsArr.splice(rand,1);
+//         }
+//     }
 
 //    console.log(response.response.groups["0"].items["0"].venue.name);
 //    console.log(response.response.groups["0"].items["0"].venue.categories["0"].name);
